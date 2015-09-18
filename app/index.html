@@ -13,16 +13,27 @@
 
         <!-- endbower -->
         <!-- inject:css -->
-
+        <link rel="stylesheet" href="/stylesheets/main.css">
         <!-- endinject -->
 
         <!-- endbuild -->
     </head>
-    <body ng-app="blog">
+    <body ng-app="GameboardApp">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+        <div class="header">
+            <h1 class="logo">GameBoard</h1>
+        </div>
+
+        <div class="main">
+            <div class="container">
+                <div class="row">
+                    <game ng-repeat="score in scores" info="score"></game>
+                </div>
+            </div>
+        </div>
 
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -42,6 +53,8 @@
         <!-- endbuild -->
         <!-- build:js js/app.min.js -->
         <!-- inject:js -->
+
+        <script src="/scripts/app.js"></script>
 
         <!-- endinject -->
         <!-- endbuild -->
