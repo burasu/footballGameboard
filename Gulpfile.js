@@ -82,7 +82,7 @@ gulp.task('inject', function() {
         .pipe(gulp.dest('./app'));
 });
 
-//Inyecta las librerias queinstalemos vía Bower
+//Inyecta las librerias que instalemos vía Bower
 gulp.task('wiredep', function() {
     gulp.src('./app/index.html')
         .pipe(wiredep({
