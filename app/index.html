@@ -10,7 +10,7 @@
 
         <!-- build:css css/style.min.css -->
         <!-- bower:css -->
-
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
         <!-- endbower -->
         <!-- inject:css -->
         <link rel="stylesheet" href="/stylesheets/main.css">
@@ -24,13 +24,15 @@
         <![endif]-->
 
         <div class="header">
-            <h1 class="logo">GameBoard</h1>
+            <h1 class="logo">Marcador</h1>
         </div>
 
-        <div class="main">
+        <div class="main" ng-controller="ScoreController">
             <div class="container">
                 <div class="row">
+
                     <game ng-repeat="score in scores" info="score"></game>
+
                 </div>
             </div>
         </div>
@@ -49,12 +51,21 @@
         <!-- build:js js/vendor.min.js -->
         <!-- bower:js -->
 
+        <script src="lib/jquery/dist/jquery.js"></script>
+        <script src="lib/angular/angular.js"></script>
+
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:js js/app.min.js -->
         <!-- inject:js -->
 
+        <script src="/scripts/templates.js"></script>
+
+        <script src="/scripts/directives.js"></script>
+
         <script src="/scripts/app.js"></script>
+
+        <script src="/scripts/controllers.js"></script>
 
         <!-- endinject -->
         <!-- endbuild -->

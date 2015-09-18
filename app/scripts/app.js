@@ -2,6 +2,6 @@
 {
     'use strict';
 
-    angular.module('GameboardApp', []);
+    angular.module('GameboardApp', ['GameboardApp.controllers', 'GameboardApp.directives']);
 
 })();
