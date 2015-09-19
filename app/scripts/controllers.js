@@ -1,102 +1,82 @@
-(function ()
-{
+'use strict';
 
-    'use strict';
+/* Controllers */
 
-    angular.module('GameboardApp.controllers', []);
+angular.module('Football.controllers', [])
 
-    function ScoreController($scope)
+    .controller('LeagueCtrl', function($scope, footballdataAPIservice)
     {
+        $scope.leagues = [];
+
+        footballdataAPIservice.getLeagues().success(function (response)
+        {
+            $scope.leagues = response;
+            console.log($scope.leagues);
+        })
+    })
+
+    .controller('LeagueTableCtrl', function($scope, footballdataAPIservice)
+    {
+
+        $scope.leagueTable = [];
+
+        footballdataAPIservice.getLeagueTable().success(function (response) {
+
+            $scope.leagueTable = response;
+
+            console.log($scope.leagueTable);
+        });
+
+    })
+    .controller('ScoreController', function($scope) {
+
         $scope.scores = [
             {
-                datetime: 1420848000000,
-                visitor_team: {
-                    city: "Charlotte",
-                    name: "Hornets"
+                stadium: 'La Rosaleda',
+                homeTeam: {
+                    name: 'Málaga',
+                    logo: 'https://upload.wikimedia.org/wikipedia/en/c/c3/M%C3%A1laga_CF.png'
                 },
-                home_team: {
-                    city: "New York",
-                    name: "Knicks"
+                visitorTeam: {
+                    name: 'Sevilla',
+                    logo: 'https://upload.wikimedia.org/wikipedia/en/8/86/Sevilla_cf_200px.png'
                 },
-                period: "Final",
-                visitor_score: 110,
-                home_score: 82
+                homeScore: 0,
+                visitorScore: 0
             },
             {
-                datetime: 1420848000000,
-                visitor_team: {
-                    city: "Dallas",
-                    name: "Mavericks"
+                stadium: 'Power8 Stadium',
+                homeTeam: {
+                    name: 'Espanyol'
                 },
-                home_team: {
-                    city: "Los Angeles",
-                    name: "Clippers"
+                visitorTeam: {
+                    name: 'Getafe'
                 },
-                period: "Final",
-                visitor_score: 100,
-                home_score: 120
+                homeScore: 1,
+                visitorScore: 0
             },
             {
-                datetime: 1420848000000,
-                visitor_team: {
-                    city: "Brooklyn",
-                    name: "Nets"
+                stadium: 'Vicente Calderón',
+                homeTeam: {
+                    name: 'Atético de Madrid'
                 },
-                home_team: {
-                    city: "Detroit",
-                    name: "Pistons"
+                visitorTeam: {
+                    name: 'U.D. Las Palmas'
                 },
-                period: "Third Quarter",
-                visitor_score: 69,
-                home_score: 74
+                homeScore: 1,
+                visitorScore: 0
             },
             {
-                datetime: 1420848000000,
-                visitor_team: {
-                    city: "Indiana",
-                    name: "Pacers"
+                stadium: 'Riazor',
+                homeTeam: {
+                    name: 'Deportivo de la Coruña'
                 },
-                home_team: {
-                    city: "Philadelphia",
-                    name: "76ers"
-                },
-                period: "Third Quarter",
-                visitor_score: 70,
-                home_score: 72
-            },
-            {
-                datetime: 1420848000000,
-                visitor_team: {
-                    city: "San Antonio",
-                    name: "Spurs"
-                },
-                home_team: {
-                    city: "Minnesota",
-                    name: "Timberwolves"
-                },
-                period: "Halftime",
-                visitor_score: 58,
-                home_score: 43
-            },
-            {
-                datetime: 1420848000000,
-                visitor_team: {
-                    city: "Orlando",
-                    name: "Magic"
-                },
-                home_team: {
-                    city: "Portland",
-                    name: "Trail Blazers"
-                },
-                period: "First Quarter",
-                visitor_score: 13,
-                home_score: 26
+                visitorTeam: {
+                    name: 'Real Sociedad'
+                } ,
+                homeScore: 0,
+                visitorScore: 0
             }
         ];
-    }
 
-    angular
-        .module('GameboardApp')
-        .controller('ScoreController', ScoreController);
-
-})();
+    });

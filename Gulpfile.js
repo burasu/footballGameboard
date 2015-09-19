@@ -97,7 +97,7 @@ gulp.task('templates', function() {
     gulp.src('./app/views/**/*.tpl.html')
         .pipe(templateCache({
             root: 'views/',
-            module: 'GameboardApp.templates',
+            module: 'Football.templates',
             standalone: true
         }))
         .pipe(gulp.dest('./app/scripts'));

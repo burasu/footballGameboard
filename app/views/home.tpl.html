@@ -1,0 +1,34 @@
+<div class="main">
+    <div class="container">
+
+        <div class="row">
+            <h1>{{ leagueTable.leagueCaption }}</h1>
+            <h2>Jornada {{ leagueTable.matchday }}</h2>
+
+            <table>
+                <tr>
+                    <th>Posición</th>
+                    <th>Equipo</th>
+                    <th>PT</th>
+                    <th>PJ</th>
+                    <th>GF</th>
+                    <th>GC</th>
+                    <th>GD</th>
+                </tr>
+                <tr ng-repeat="stand in leagueTable.standing">
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ stand.teamName }}</td>
+                    <td>{{ stand.points }}</td>
+                    <td>{{ stand.playedGames }}</td>
+                    <td>{{ stand.goals }}</td>
+                    <td>{{ stand.goalsAgainst }}</td>
+                    <td>{{ stand.goalDifference }}</td>
+                </tr>
+            </table>
+
+            <p>En esta página podrá ver los resultados de las
+                diferentes jornadas de la liga española.</p>
+        </div>
+
+    </div>
+</div>

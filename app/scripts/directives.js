@@ -2,7 +2,7 @@
 {
     'use strict';
 
-    angular.module('GameboardApp.directives', []);
+    angular.module('Football.directives', []);
 
     function game()
     {
@@ -12,11 +12,11 @@
                 info: '='
             },
             templateUrl: 'views/game.tpl.html'
-        }
+        };
     }
 
     angular
-        .module('GameboardApp.directives')
+        .module('Football.directives')
         .directive('game', game);
 
 })();

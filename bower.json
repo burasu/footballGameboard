@@ -4,6 +4,8 @@
   "description": "Desarrollo de un marcador de resultados futbolisticos.",
   "dependencies": {
     "angular": "~1.4.6",
+    "angular-resource": "~1.4.6",
+    "angular-route": "~1.4.6",
     "bootstrap": "~3.3.5"
   }
 }

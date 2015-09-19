@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Football - Gameboard</title>
+        <title>Marcadores de Fútbol</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Coloca favicon.ico y apple-touch-icon(s) en el directorio raiz -->
@@ -18,17 +18,29 @@
 
         <!-- endbuild -->
     </head>
-    <body ng-app="GameboardApp">
+    <body ng-app="Football">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
         <div class="header">
-            <h1 class="logo">Marcador</h1>
+            <h1 class="logo">Marcadores de fútbol</h1>
         </div>
+
+        <ng-view></ng-view>
 
         <div class="main" ng-controller="ScoreController">
             <div class="container">
+
+                <h3>Jornada</h3>
+
+                <ul class="matchs">
+                    <li><a ng-href="#/jornada/1">1</a></li>
+                    <li>...</li>
+                    <li><a ng-href="#/jornada/38">38</a></li>
+                </ul>
+
+
                 <div class="row">
 
                     <game ng-repeat="score in scores" info="score"></game>
@@ -50,10 +62,11 @@
 
         <!-- build:js js/vendor.min.js -->
         <!-- bower:js -->
-
         <script src="lib/jquery/dist/jquery.js"></script>
         <script src="lib/angular/angular.js"></script>
-
+        <script src="lib/angular-resource/angular-resource.js"></script>
+        <script src="lib/angular-route/angular-route.js"></script>
+        <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:js js/app.min.js -->
@@ -61,11 +74,13 @@
 
         <script src="/scripts/templates.js"></script>
 
+        <script src="/scripts/services.js"></script>
+
         <script src="/scripts/directives.js"></script>
 
-        <script src="/scripts/app.js"></script>
-
         <script src="/scripts/controllers.js"></script>
+
+        <script src="/scripts/app.js"></script>
 
         <!-- endinject -->
         <!-- endbuild -->
