@@ -29,26 +29,6 @@
 
         <ng-view></ng-view>
 
-        <div class="main" ng-controller="ScoreController">
-            <div class="container">
-
-                <h3>Jornada</h3>
-
-                <ul class="matchs">
-                    <li><a ng-href="#/jornada/1">1</a></li>
-                    <li>...</li>
-                    <li><a ng-href="#/jornada/38">38</a></li>
-                </ul>
-
-
-                <div class="row">
-
-                    <game ng-repeat="score in scores" info="score"></game>
-
-                </div>
-            </div>
-        </div>
-
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

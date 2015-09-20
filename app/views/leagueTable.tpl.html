@@ -3,7 +3,12 @@
 
         <div class="row">
             <h1>{{ leagueTable.leagueCaption }}</h1>
-            <h2>Jornada {{ leagueTable.matchday }}</h2>
+            <h2>Resultado hasta la jornada: {{ leagueTable.matchday }}</h2>
+
+            <!-- Mostramos una lista de las diferentes jornadas para mostrar los marcadores. -->
+            <ul ng-repeat="n in getNumber(league.numberOfTeams) track by $index">
+                <li><a ng-href="#/matchs/{{ $index + 1 }}">{{ $index + 1 }}</a></li>
+            </ul>
 
             <table>
                 <tr>
@@ -25,9 +30,6 @@
                     <td>{{ stand.goalDifference }}</td>
                 </tr>
             </table>
-
-            <p>En esta página podrá ver los resultados de las
-                diferentes jornadas de la liga española.</p>
         </div>
 
     </div>
