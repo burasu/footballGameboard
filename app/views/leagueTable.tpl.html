@@ -1,36 +1,25 @@
-<div class="main">
-    <div class="container">
+<h1>{{ leagueTable.leagueCaption }}</h1>
+<h2>Clasificación hasta la jornada: {{ leagueTable.matchday }}</h2>
 
-        <div class="row">
-            <h1>{{ leagueTable.leagueCaption }}</h1>
-            <h2>Resultado hasta la jornada: {{ leagueTable.matchday }}</h2>
-
-            <!-- Mostramos una lista de las diferentes jornadas para mostrar los marcadores. -->
-            <ul ng-repeat="n in getNumber(league.numberOfTeams) track by $index">
-                <li><a ng-href="#/matchs/{{ $index + 1 }}">{{ $index + 1 }}</a></li>
-            </ul>
-
-            <table>
-                <tr>
-                    <th>Posición</th>
-                    <th>Equipo</th>
-                    <th>PT</th>
-                    <th>PJ</th>
-                    <th>GF</th>
-                    <th>GC</th>
-                    <th>GD</th>
-                </tr>
-                <tr ng-repeat="stand in leagueTable.standing">
-                    <td>{{ $index + 1 }}</td>
-                    <td>{{ stand.teamName }}</td>
-                    <td>{{ stand.points }}</td>
-                    <td>{{ stand.playedGames }}</td>
-                    <td>{{ stand.goals }}</td>
-                    <td>{{ stand.goalsAgainst }}</td>
-                    <td>{{ stand.goalDifference }}</td>
-                </tr>
-            </table>
-        </div>
-
-    </div>
-</div>
+<table class="table table-bordered">
+    <thead>
+        <th>Posición</th>
+        <th>Equipo</th>
+        <th>Partidos</th>
+        <th>Puntos</th>
+        <th>Goles a favor</th>
+        <th>Goles en contra</th>
+        <th>Diferencia de goles</th>
+    </thead>
+    <tbody ng-repeat="stand in leagueTable.standing">
+        <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ stand.teamName }}</td>
+            <td>{{ stand.playedGames }}</td>
+            <td>{{ stand.points }}</td>
+            <td>{{ stand.goals }}</td>
+            <td>{{ stand.goalsAgainst }}</td>
+            <td>{{ stand.goalDifference }}</td>
+        </tr>
+    </tbody>
+</table>
