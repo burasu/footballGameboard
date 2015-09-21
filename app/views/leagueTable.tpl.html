@@ -1,25 +1,25 @@
 <h1>{{ leagueTable.leagueCaption }}</h1>
 <h2>Clasificación hasta la jornada: {{ leagueTable.matchday }}</h2>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-striped">
     <thead>
-        <th>Posición</th>
-        <th>Equipo</th>
-        <th>Partidos</th>
-        <th>Puntos</th>
-        <th>Goles a favor</th>
-        <th>Goles en contra</th>
-        <th>Diferencia de goles</th>
+        <th class="center">Posición</th>
+        <th class="center">Equipo</th>
+        <th class="center">Partidos</th>
+        <th class="center">Puntos</th>
+        <th class="center">GF</th>
+        <th class="center">GC</th>
+        <th class="center">GD</th>
     </thead>
-    <tbody ng-repeat="stand in leagueTable.standing">
-        <tr>
-            <td>{{ $index + 1 }}</td>
+    <tbody>
+        <tr ng-repeat="stand in leagueTable.standing">
+            <td class="center">{{ $index + 1 }}</td>
             <td>{{ stand.teamName }}</td>
-            <td>{{ stand.playedGames }}</td>
-            <td>{{ stand.points }}</td>
-            <td>{{ stand.goals }}</td>
-            <td>{{ stand.goalsAgainst }}</td>
-            <td>{{ stand.goalDifference }}</td>
+            <td class="number">{{ stand.playedGames }}</td>
+            <td class="number">{{ stand.points }}</td>
+            <td class="number">{{ stand.goals }}</td>
+            <td class="number">{{ stand.goalsAgainst }}</td>
+            <td class="number">{{ stand.goalDifference }}</td>
         </tr>
     </tbody>
 </table>

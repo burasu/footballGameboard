@@ -1,15 +1,26 @@
-<h1>{{ leagueTable.leagueCaption }}</h1>
-<h2>Resultados de la jornada: {{ leagueTable.matchday }}</h2>
+<h1>{{ league.caption }}</h1>
 
+<h2 ng-if="principal == false">Resultados de la jornada: {{ match }}</h2>
+<h2 ng-if="principal == true">Seleccione una jornada</h2>
 
+<nav>
+    <ul class="pagination">
+        <li ng-repeat="number in getNumber(league.numberOfTeams) track by $index">
+            <a href="#/matchs/{{ $index + 1 }}">{{ $index + 1 }}</a>
+        </li>
+    </ul>
+</nav>
 
-<div class="main">
-    <div class="container">
-
-        <div class="row" ng-repeat="match in matchs.fixtures">
-            <p>{{ match.status }}</p><br />
-            <p>{{ match.homeTeamName }} - {{ match.awayTeamName }}</p><br/>
-            <p>{{ match.result.goalsHomeTeam }} - {{ match.result.goalsAwayTeam }}
+<div class="bs-example" data-example-id="thumbnails-with-custom-content">
+    <div class="row">
+      <div class="col-sm-6 col-md-4" ng-repeat="match in matchs.fixtures">
+        <div class="thumbnail">
+          <div class="caption" align="center">
+            <p><strong>{{ match.status }}</strong></p>
+            <h2>{{ match.result.goalsHomeTeam }} - {{ match.result.goalsAwayTeam }}</h2>
+            <p>{{ match.homeTeamName }} - {{ match.awayTeamName }}</p>
+          </div>
         </div>
+      </div>
     </div>
 </div>
